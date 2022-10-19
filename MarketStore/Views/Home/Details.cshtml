@@ -1,0 +1,77 @@
+﻿@model MarketStore.Models.Product
+@*@using Microsoft.AspNetCore.Http;
+@using MarketStore.Utility;
+@inject IHttpContextAccessor HttpContextAccessor*@
+@{
+    ViewData["Title"] = "Contact";
+    Layout = "~/Views/Shared/_HomeLayout.cshtml";
+    //List<Product> products= HttpContextAccessor.HttpContext.Session.Get<List<Product>>("products");
+    //Product product = null;
+    //if (products != null)
+    //{
+    //    product = products.FirstOrDefault(c => c.Productid == Model.Productid);
+    //}
+}
+
+
+<div id="page-content" class="page-content">
+    <div class="banner">
+        <div class="jumbotron jumbotron-bg text-center rounded-0" style="background-image: url('/HomeAssets/img/bg-header.jpg');">
+            <div class="container">
+                <h1 class="pt-5">
+                    The Meat Product Title
+                </h1>
+                <p class="lead">
+                    Save time and leave the groceries to us.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="product-detail">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="slider-zoom">
+                        <a href="~/HomeAssets/img/meats.jpg" class="cloud-zoom" rel="transparentImage: 'data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==', useWrapper: false, showTitle: false, zoomWidth:'500', zoomHeight:'500', adjustY:0, adjustX:10" id="cloudZoom">
+                            <img alt="Detail Zoom thumbs image" src="~/HomeAssets/img/meats.jpg" style="width: 100%;">
+                        </a>
+                    </div>
+
+                    <div class="slider-thumbnail">
+                        <ul class="d-flex flex-wrap p-0 list-unstyled">
+                            <li>
+                                <a class="cloud-zoom-gallery">
+                                    @Html.DisplayFor(model => model.ImagePath)
+                                                                @*<img itemprop="image" src="~/HomeAssets/img/meats.jpg" style="width:135px;">*@
+                                                            </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+                <div class="col-sm-6">
+                    <p>
+                        <strong>Overview</strong><br>
+                        @Html.DisplayFor(model => model.Productdescription)
+                    </p>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <p>
+                                <strong>Price</strong> (/Pack)<br>
+                                <span class="price">@Html.DisplayFor(model => model.Prosale)</span>
+                            </p>
+                        </div>
+                    </div>
+                    <p class="mb-1">
+                        <strong>Quantity</strong>
+                    </p>
+                    <button class="mt-3 btn btn-primary btn-lg">
+                        <i class="fa fa-shopping-basket"></i> Add to Cart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
